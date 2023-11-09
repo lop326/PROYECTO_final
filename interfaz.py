@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from PIL import Image, ImageTk
 
 
@@ -61,7 +62,12 @@ def interfaz_principal():
             #boton femenino
             boton_femenino=tk.Button(vent_calorias,text="FEMENINO",font=("Arial",24),foreground="red",borderwidth=10)
             boton_femenino.place(x=350,y=400)
-            
+            #resultado
+            etiq_resul_cal=tk.Label(vent_calorias,text="CALORIAS",font=("Arial",24),foreground="blue")
+            etiq_resul_cal.place(x=550,y=150)
+            #mostrar resultado
+            etiq_mostr_resul=tk.Label(vent_calorias,text="",font=("Arial",24))
+            etiq_mostr_resul.place(x=550,y=200,width=300)
             #boton regresar
             boton_regresar=tk.Button(vent_calorias,text="REGRESAR",font=("Arial",24),background="red",borderwidth=10,command=regresar)
             boton_regresar.place(x=600,y=600)
@@ -93,9 +99,15 @@ def interfaz_principal():
             #ingreso de altura
             entrada_altura=tk.Entry(vent_IMC,font=("Arial",24))
             entrada_altura.place(x=500,y=200,height=30,width=200)
+            #boton aceptar
             boton_aceptar=tk.Button(vent_IMC,text="ACEPTAR",font=("Arial",24),borderwidth=8)
             boton_aceptar.place(x=200,y=400)
-            
+            #resultado
+            etiq_mostr_resul=tk.Label(vent_IMC,text="IMC:",font=("Arial",24),foreground="blue")
+            etiq_mostr_resul.place(x=250,y=250)
+            #mostrar resultado
+            mostr_resul=tk.Label(vent_IMC,text="",font=("Arial",24))
+            mostr_resul.place(x=250,y=300,width=300)
             #boton regresar
             boton_regresar=tk.Button(vent_IMC,text="REGRESAR",font=("Arial",24),background="red",borderwidth=8,command=regresar)
             boton_regresar.place(x=400,y=400)
@@ -120,16 +132,28 @@ def interfaz_principal():
             fondo_aliment_label = tk.Label(vent_aliment, image=imag_fondo_aliment)
             fondo_aliment_label.place(x=0, y=0, relwidth=1, relheight=1)
             
+            # Crear una lista de opciones
+            Alimentos= ("Leche","Leche parcialmente descremada","Leche descremada","Yogur","Queso 1","Queso 2","Queso 3","Queso 4","Queso unt. Descremado","Queso blando descremado",
+                        "Huevo","Carne vaca","Carne cerdo","Carne pollo","Carne pescado","Jamon","Veg A","Veg B","Veg C","Frutas frescas","Frutas desecadas","Frutas secas",
+                        "Cereales","Legumbres","Pan frances","Bollo","Galletas","Azucar","Dulces","Aceite","Manteca","Crema leche liviana","Crema leche espesa")
 
             #alimento
             etiq_intr_aliment=tk.Label(vent_aliment,text="INGRESE ALIMENTO",font=("Arial",24))
-            etiq_intr_aliment.place(x=100,y=100)
-            #carga de alimento
-            entrada_aliement=tk.Entry(vent_aliment,font=("Arial",24))
-            entrada_aliement.place(x=100,y=200,width=500)
+            etiq_intr_aliment.place(x=100,y=50)
+            #carga de alimento para mostrar las opciones
+           
+            combo_aliment = ttk.Combobox(vent_aliment, values=Alimentos, font=("Arial",20))
+            combo_aliment.place(x=100,y=100)
+
+            #cantidad
+            etiq_intr_cant=tk.Label(vent_aliment,text="INGRESE CANTIDAD EN GRAMOS",font=("Arial",24),)
+            etiq_intr_cant.place(x=100,y=150)
+            #carga de cantidad
+            entrada_cant=tk.Entry(vent_aliment,font=("Arial",20))
+            entrada_cant.place(x=100,y=200)
             #boton buscar
             boton_buscar=tk.Button(vent_aliment,text="BUSCAR",font=("Arial",22),borderwidth=8)
-            boton_buscar.place(x=625,y=190)
+            boton_buscar.place(x=640,y=200)
             #boton regresar
             boton_regresar=tk.Button(vent_aliment,text="REGRESAR",font=("Arial",24),background="red",borderwidth=10,command=regresar)
             boton_regresar.place(x=600,y=600)
@@ -145,8 +169,8 @@ def interfaz_principal():
             etiq_grasa= tk.Label(vent_aliment,text="GRASAS:",font=("Arial",20),bg="yellow")
             etiq_grasa.place(x=100,y=400)
             #CALSIO
-            etiq_CALSIO= tk.Label(vent_aliment,text="CALSIO:",font=("Arial",20),bg="yellow")
-            etiq_CALSIO.place(x=100,y=450)
+            etiq_CALCIO= tk.Label(vent_aliment,text="CALCIO:",font=("Arial",20),bg="yellow")
+            etiq_CALCIO.place(x=100,y=450)
             #HIERRO
             etiq_HIERRO= tk.Label(vent_aliment,text="HIERRO:",font=("Arial",20),bg="yellow")
             etiq_HIERRO.place(x=100,y=500)
